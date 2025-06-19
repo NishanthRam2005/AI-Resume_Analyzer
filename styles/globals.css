@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 248 90% 66%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 248 90% 66%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply antialiased bg-gradient-to-br from-violet-50 via-slate-50 to-indigo-50;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-xl;
+  }
+
+  .glass-input {
+    @apply bg-white/60 backdrop-blur-sm border border-violet-100/50 focus:border-violet-200 
+           rounded-xl px-4 py-3 outline-none transition duration-200 hover:bg-white/70 
+           focus:bg-white/80 focus:ring-2 focus:ring-violet-100/50;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600;
+  }
+
+  .gradient-border {
+    @apply border-transparent bg-gradient-to-r from-violet-200 to-indigo-200 bg-clip-border;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg;
+  }
+
+  .animate-in-up {
+    @apply animate-in fade-in slide-in-from-bottom-4 duration-700;
+  }
+
+  .animate-in-down {
+    @apply animate-in fade-in slide-in-from-top-4 duration-700;
+  }
+}
+
+    --secondary-foreground: 0 0% 100%;
+    --accent: 280 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Feedback Colors */
+    --success: 142 72% 29%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+    --info: 245 100% 60%;
+
+    /* Border & Effects */
+    --border: 250 10% 90%;
+    --ring: 250 100% 50%;
+    --radius: 1rem;
+
+    /* Shadows */
+
+.hover-lift {
+  transition-property: transform;
+  transition-duration: 300ms;
+}
+
+.hover-lift:hover {
+  transform: translateY(-0.25rem);
+}
+
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-input {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, rgb(124, 58, 237), rgb(79, 70, 229));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.animate-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-in-down {
+  animation: fadeInDown 0.3s ease-in-out;
+}
+
+.animate-in-up {
+  animation: fadeInUp 0.3s ease-in-out;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animate-in 0.3s ease-out;
+  }
+  
+  .fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+  
+  .slide-in-from-bottom {
+    animation: slide-in-from-bottom 0.5s ease-out;
+  }
+  
+  .duration-700 {
+    animation-duration: 700ms;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-border-hover {
+    @apply relative after:absolute after:inset-0 after:p-[1px] after:rounded-[inherit] 
+           after:bg-gradient-to-r after:from-violet-500/50 after:to-indigo-500/50 
+           after:opacity-0 after:transition-opacity hover:after:opacity-100;
+  }
+
+  .glass-effect {
+    @apply relative overflow-hidden;
+  }
+  .glass-effect::before {
+    @apply content-[''] absolute inset-0 bg-gradient-to-br from-white/10 to-transparent;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes animate-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(10px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
